@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-festava-live.css" rel="stylesheet">
+    <style>
+        h2{
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .form-submission{
+            margin-top: 50px;
+        }
+        .admin-form {
+            max-width: 600px;
+            background-color: rgb(219, 217, 217);
+            margin: auto;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            padding: 30px;
+            border-radius: 16px;
+        }
+        .admin-form input, .admin-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+        }
+        .admin-form button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+        .link-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link-container a {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+        button{
+            border-radius: 25px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 90%;
+            margin-left: 5%;
+            border-collapse: collapse;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12 d-flex flex-wrap">
+                        <p class="d-flex me-4 mb-0">
+                            <i class="bi-person custom-icon me-2"></i>
+                            <strong class="text-dark">Welcome to Music Festival 2024</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </main>
+
+<h2>Admin Dashboard: Edit Event Details</h2>
+<div class="admin-form">
+    <label for="day1_title">Day 1 Title</label>
+    <input type="text" id="day1_title">
+
+    <label for="day1_description">Day 1 Description</label>
+    <textarea id="day1_description"></textarea>
+
+    <label for="day2_title">Day 2 Title</label>
+    <input type="text" id="day2_title">
+
+    <label for="day2_description">Day 2 Description</label>
+    <textarea id="day2_description"></textarea>
+
+    <label for="day3_title">Day 3 Title</label>
+    <input type="text" id="day3_title">
+
+    <label for="day3_description">Day 3 Description</label>
+    <textarea id="day3_description"></textarea>
+
+    <button onclick="updateEventDetails()">Save Changes</button>
+</div>
+
+<div class="link-container">
+    <a href="index.html">Go to Event Schedule</a>
+</div>
+
+<h2 class="form-submission">Form Submissions</h2>
+<table id="submissionsTable">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Form submissions will be populated here -->
+    </tbody>
+</table>
+
+
+<script>
+    window.onload = function() {
+        const eventDetails = JSON.parse(localStorage.getItem('eventDetails'));
+
+        if (eventDetails) {
+            document.getElementById('day1_title').value = eventDetails.day1.title || "Pop Night";
+            document.getElementById('day1_description').value = eventDetails.day1.description || "By Adele";
+            document.getElementById('day2_title').value = eventDetails.day2.title || "DJ Night";
+            document.getElementById('day2_description').value = eventDetails.day2.description || "By Rihana";
+            document.getElementById('day3_title').value = eventDetails.day3.title || "Country Music";
+            document.getElementById('day3_description').value = eventDetails.day3.description || "By Rihana";
+        } else {
+            // If no values are stored, show default values
+            document.getElementById('day1_title').value = "Pop Night";
+            document.getElementById('day1_description').value = "By Adele";
+            document.getElementById('day2_title').value = "DJ Night";
+            document.getElementById('day2_description').value = "By Rihana";
+            document.getElementById('day3_title').value = "Country Music";
+            document.getElementById('day3_description').value = "By Rihana";
+        }
+    }
+
+    function updateEventDetails() {
+        // Get values from the form
+        const day1Title = document.getElementById('day1_title').value;
+        const day1Description = document.getElementById('day1_description').value;
+
+        const day2Title = document.getElementById('day2_title').value;
+        const day2Description = document.getElementById('day2_description').value;
+
+        const day3Title = document.getElementById('day3_title').value;
+        const day3Description = document.getElementById('day3_description').value;
+
+        // Save data in LocalStorage
+        const eventDetails = {
+            day1: { title: day1Title, description: day1Description },
+            day2: { title: day2Title, description: day2Description },
+            day3: { title: day3Title, description: day3Description }
+        };
+
+        localStorage.setItem('eventDetails', JSON.stringify(eventDetails));
+        alert('Event details updated successfully!');
+    }
+
+
+      function loadSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('formSubmissions')) || [];
+
+            const tableBody = document.querySelector('#submissionsTable tbody');
+
+            tableBody.innerHTML = '';
+
+            submissions.forEach(submission => {
+                const row = document.createElement('tr');
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = submission.name;
+                row.appendChild(nameCell);
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = submission.email;
+                row.appendChild(emailCell);
+
+                const messageCell = document.createElement('td');
+                messageCell.textContent = submission.message;
+                row.appendChild(messageCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to load submissions when the page loads
+        window.onload = loadSubmissions;
+</script>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/click-scroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>
