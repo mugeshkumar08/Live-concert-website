@@ -60,7 +60,7 @@
             <form id="signup-form">
                 <div class="input-box">
                     <input type="text" id="signup-username" required>
-                    <label for="">Username</label>
+                    <label for="">Name</label>
                 </div>
                 <div class="input-box">
                     <input type="email" id="signup-email" required>
@@ -105,6 +105,34 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Get form values
+            const username = document.getElementById('signup-username').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value.trim();
+    
+            if (username && email && password) {
+                // Store the signup details in localStorage
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                users.push({ name: username, email: email });
+                localStorage.setItem('users', JSON.stringify(users));
+    
+                alert('Signup successful!');
+    
+                // Clear form fields after submission
+                document.getElementById('signup-username').value = '';
+                document.getElementById('signup-email').value = '';
+                document.getElementById('signup-password').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+    
 
     <script src="./js/script.js"></script>
     <script src="js/jquery.min.js"></script>

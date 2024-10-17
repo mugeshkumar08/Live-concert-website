@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-festava-live.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel
+            <div class="container">
+                <p id="welcomeMessage"></p>
+                <a class="logoutbtn" onclick="logout()">Logout</a>
+              </div>
+        </h2>
+        <ul>
+            <li><a href="#" data-target="section-1">Edit Event Details</a></li>
+            <li><a href="#" data-target="section-3">View Submissions</a></li>
+            <li><a href="#" data-target="section-4">User Signup Details</a></li>
+            <li><a href="#" data-target="section-5">Ticket Booking Details</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <section id="section-1" class="section active">
+            <h5>Admin Dashboard: Edit Event Details</h5>
+            <div class="admin-form">
+                <label for="day1_title">Day 1 Title</label>
+                <input type="text" id="day1_title">
+
+                <label for="day1_description">Day 1 Description</label>
+                <textarea id="day1_description"></textarea>
+
+                <label for="day2_title">Day 2 Title</label>
+                <input type="text" id="day2_title">
+
+                <label for="day2_description">Day 2 Description</label>
+                <textarea id="day2_description"></textarea>
+
+                <label for="day3_title">Day 3 Title</label>
+                <input type="text" id="day3_title">
+
+                <label for="day3_description">Day 3 Description</label>
+                <textarea id="day3_description"></textarea>
+
+                <button onclick="updateEventDetails()">Save Changes</button>
+            </div>
+        </section>
+
+        <section id="section-3" class="section">
+            <h5>Admin Dashboard - Contact Form Details</h5>
+            <table id="contacts-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="contacts-details">
+                    <!-- Contact details will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+        
+         <!-- User Signup Details -->
+         <section id="section-4" class="section">
+          <h5>User Signup Details</h5>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                  </tr>
+              </thead>
+              <tbody id="signupDetails">
+                  <!-- Signup details will be populated here -->
+              </tbody>
+          </table>
+      </section>
+
+      <!-- User Login Details -->
+      <section id="section-5" class="section">
+        <h5>Admin Dashboard - Booking Details</h5>
+        <table id="booking-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Seats</th>
+                    <th>Amount (Rs)</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="booking-details">
+                <!-- Booking details will be inserted here -->
+            </tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/admin.js"></script>
+</body>
+</html>

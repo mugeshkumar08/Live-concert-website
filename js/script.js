@@ -122,33 +122,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-
-
 function submitForm(event) {
-    event.preventDefault(); 
-
+    event.preventDefault(); // Prevent form from refreshing the page
+    
+    // Get form values
     const name = document.getElementById('contact-name').value;
     const email = document.getElementById('contact-email').value;
     const message = document.getElementById('contact-message').value;
 
-    const formData = {
-        name: name,
-        email: email,
-        message: message
-    };
+    // Validate fields
+    if (name && email && message) {
+        const contactDetails = {
+            name: name,
+            email: email,
+            message: message,
+            date: new Date().toLocaleString()
+        };
 
-    let submissions = JSON.parse(localStorage.getItem('formSubmissions')) || [];
+        // Store contact details in localStorage
+        let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+        contacts.push(contactDetails);
+        localStorage.setItem('contacts', JSON.stringify(contacts));
 
-    submissions.push(formData);
-
-    localStorage.setItem('formSubmissions', JSON.stringify(submissions));
-
-    alert('Form submitted successfully!');
-
-    document.getElementById('contact-name').value = '';
-    document.getElementById('contact-email').value = '';
-    document.getElementById('contact-message').value = '';
+        alert('Contact form submitted successfully.');
+    } else {
+        alert('Please fill all the fields.');
+    }
 }
-

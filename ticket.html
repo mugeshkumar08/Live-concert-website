@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/ticket.css">
+</head>
+<body>
+    <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="Assets/ani-clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <div class="form-container">
+        <h2>Book Ticket</h2>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="number" id="seats" placeholder="Number of Seats" min="1" required>
+        <input type="number" id="amount" placeholder="Paying Amount" min="1" required>
+        <button onclick="bookTicket()">Book Ticket</button>
+        <a href="index.html"></a>
+        <div class="confirmation" id="confirmation" style="display: none;">
+            <h4>Booking Confirmation</h4>
+            <p id="confirmationDetails"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle booking ticket
+        function bookTicket() {
+            // Get user input values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const seats = parseInt(document.getElementById('seats').value);
+            const amount = parseFloat(document.getElementById('amount').value);
+
+            // Validate inputs
+            if (name && email && seats > 0 && amount > 0) {
+                // Create a booking object
+                const booking = {
+                    name: name,
+                    email: email,
+                    seats: seats,
+                    amount: amount,
+                    date: new Date().toLocaleString()
+                };
+
+                // Get current bookings from localStorage
+                let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+                // Add the new booking to the bookings array
+                bookings.push(booking);
+
+                // Save the updated bookings array to localStorage
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+
+                // Display confirmation message
+                const confirmationMessage = `
+                    Thank you, ${name}! Your booking is confirmed.
+                    <br>Email: ${email}
+                    <br>Seats: ${seats}
+                    <br>Total Amount: Rs${amount.toFixed(2)}
+                `;
+                document.getElementById('confirmationDetails').innerHTML = confirmationMessage;
+                document.getElementById('confirmation').style.display = 'block';
+            } else {
+                alert('Please fill out all fields correctly.');
+            }
+        }
+    </script>
+</body>
+</html>
